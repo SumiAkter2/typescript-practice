@@ -16,3 +16,27 @@ const newArray1=[1,2,3,4,5]
 const newArray2=[2,4,6,8]
 
 console.log(getCommonNumber(newArray1, newArray2));
+
+// 3.
+interface IProduct{
+    id: number;
+    name: string;
+    price: number;
+    category: string;
+}
+function filterProducts<T extends keyof IProduct>(
+  products: IProduct[],
+  criterion: T,
+  value: IProduct[T]
+): IProduct[] {
+  return products.filter((product) => product[criterion] === value);
+}
+const products: IProduct[] = [
+  { id: 1, name: 'Product A', price: 10, category: 'Category A' },
+  { id: 2, name: 'Product B', price: 20, category: 'Category B' },
+  { id: 3, name: 'Product C', price: 30, category: 'Category A' },
+  { id: 4, name: 'Product D', price: 40, category: 'Category B' },
+];
+
+const filteredProducts = filterProducts(products, 'category', 'Category A');
+console.log(filteredProducts);
