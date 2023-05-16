@@ -10,14 +10,19 @@ const Student: {name: string, roll: number, isMarried: boolean}= {
     isMarried:true,
 }
 const heroinObj: {
-    name: string,
+    sName: string,
     readonly age: number,
     prof: string, 
     isMarried ?:boolean } = {
-    name: 'Hena khan',
+    sName: 'Hena khan',
     age: 32,
     prof:'acting'
 }
-heroinObj.name = 'hena';
+// heroinObj.name = 'hena';
 heroinObj.isMarried = true;
-console.log(heroinObj);
+// console.log(heroinObj);
+// object destructuring:
+// const { sName:myHroName } = heroinObj;
+const { sName } = heroinObj;
+// console.log(myHroName);
+console.log(sName);
